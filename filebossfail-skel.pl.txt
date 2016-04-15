@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+# This is the plaintext file we create and upload
+my @plainknown =   (  0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 
+                      0xXX, 0xXX, 0xXX, 0xXX, 0xXX );
+
+# This is the encrypted version of our plaintext file returned by FileBoss
+my @cipherknown =  (  0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 
+                      0xXX, 0xXX, 0xXX, 0xXX, 0xXX );
+
+# This is the encrypted version of message.txt whose plaintext we want to
+# recover.
+my @cipherunknown = ( 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 
+                      0xXX, 0xXX, 0xXX, 0xXX, 0xXX );
+
+
+# Loop through each byte, XOR'ing the plainknown with the cipherknown to
+# create keystream.  Then XOR each byte of the keystream with the unknown
+# ciphertext to produce plaintext.
+for ($i = 0 ; $i < @plainknown; $i++) {
+    # XOR here
+    printf("%c", # XOR here again);
+}
+
+printf("\n");

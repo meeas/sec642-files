@@ -1,0 +1,25 @@
+#!/usr/bin/python
+# failkey.py
+# by Adrien de Beaupre for the SANS Sec642 class, with comments
+
+# Import some libraries to use
+import hashlib
+from datetime import date
+from dateutil.rrule import rrule, DAILY
+
+#Variables
+start_date = date(2011, 1, 1)
+end_date = date(2011, 12, 31)
+parameter = "SELECT image from failpics order by rand() limit 1"
+
+#Loop through the dates in the range
+for dt in rrule(DAILY, dtstart=start_date, until=end_date):
+    # The date in the range as a string
+    thedate = dt.strftime("%Y%m%d")
+    # The MD5 of the date as a potential key
+    keyguess = str(hashlib.md5(thedate).hexdigest())
+    # print the keyguess, the date, and the hashguess
+    print "Key guess:", keyguess, "(" + thedate + ")", "Hash guess: ", hashlib.md5(parameter+keyguess).hexdigest()
+
+# examine the output and look for
+# 189901be79c082ae7f6bc6dc0c0c0985

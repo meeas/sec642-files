@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# 2011-11-02 Joshua Wright, jwright@hasborg.com
+import sys
+
+s1="\xee\x54\x41\xe6\xb3\x8c\x2d\x5a\x75\xa6\xdb\x59\x0a\x1c\xbd\x2a"
+s2="\xa4\x3b\x29\x88\xc0\xe3\x43\x7a\x3c\xc8\xaf\x3c\x78\x6a\xd4\x4f\xf8\x6f\x76\x1f\x70\xac\xbd\x8a"
+
+if (len(s1) <= len(s2)):
+    length=len(s1)
+else:
+    length=len(s2)
+
+output=""
+for i in xrange(0,length):
+    output = "".join( [ output, chr(ord(s1[i])^ord(s2[i])) ] )
+
+sys.stdout.write(output)

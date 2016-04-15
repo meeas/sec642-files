@@ -1,0 +1,29 @@
+#!/usr/bin/python
+import sys
+
+# This is the plaintext file we create and upload
+plainknown     =   (  0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 
+                      0xXX, 0xXX, 0xXX, 0xXX, 0xXX )
+
+# This is the encrypted version of our plaintext file returned by FileBoss
+cipherknown     =   ( 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX,
+                      0xXX, 0xXX, 0xXX, 0xXX, 0xXX )
+
+# This is the encrypted version of message.txt whose plaintext we want to
+# recover.
+cipherunknown     = ( 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX, 0xXX,
+					  0xXX, 0xXX, 0xXX, 0xXX, 0xXX )
+
+plainval = []
+
+# Loop through each byte, XOR'ing the plainknown with the cipherknown to
+# create keystream.  Then XOR each byte of the keystream with the unknown
+# ciphertext to produce plaintext.
+for i in xrange(0,len(plainknown)):
+    # ???
+
+    # Need to use stdout.write since print adds a new line, or a space
+    # if the newline is suppressed.
+    sys.stdout.write("%c" % (plainval[i]));
+
+print("\n");
